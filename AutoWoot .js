@@ -1,49 +1,54 @@
-var baseUrl = "http://i.imgur.com/";
-var wooting = true;
- 
-function startWooting() {
-        stopWooting();
- 
-        API.on(API.DJ_ADVANCE, DJ_ADVANCE_LISTENER);
-        wootSong();
-        API.chatLog('AutoWoot ON');
-        var css = document.createElement("style");
-        css.type = "text/css";
-        css.setAttribute('id', 'autowooter-css');
-        css.innerHTML = "#autowooter-button { left: 213px; } .autowooter-icon-on { position: absolute; width: 30px; height: 30px; background: url("+ baseUrl + "9afjx9c.png); } .autowooter-icon-off { position: absolute; width: 30px; height: 30px; background: url("+ baseUrl + "aQ7Xot2.png); }";
-        document.body.appendChild(css);
- 
-        $('#chat-header').append('<div id="autowooter-button" class="chat-header-button"><i class="autowooter-icon autowooter-icon-on"></i></div>');
-       
-        API.chatLog();
- 
-        $("#autowooter-button").click(function() {
-                if(wooting) {
-                        $("#autowooter-button").html('<i class="autowooter-icon autowooter-icon-off"></i>');
-                } else {
-                        $("#autowooter-button").html('<i class="autowooter-icon autowooter-icon-on"></i>');
-                }
-                wooting = !wooting;
-                wootSong();
-        });
-}
- 
-function stopWooting() {
-        API.off(API.DJ_ADVANCE, DJ_ADVANCE_LISTENER);
-        wootSong();
-        $('#autowooter-js').remove();
-        $('#autowooter-css').remove();
-        $('#autowooter-button').remove();
-}
- 
-function DJ_ADVANCE_LISTENER(obj) {
-        wootSong();
-}
- 
-function wootSong() {
-        if(wooting) {
-                $("#woot").click();
+//AutoWoot para o site "plug.dj" 
+function AutoWoot() {
+    aw = {
+        autowoot: true,
+        clicks: 0,
+        close: function () {
+            API.off(API.DJ_ADVANCE, aw.djAdvance);
+            API.off(API.CHAT, aw.chat);
+            $('#woot').unbind('click', aw.doubleClick);
+        },
+        djAdvance: function () {
+            if (aw.autowoot) {
+                setTimeout(function () {
+                    $("#woot").click();
+                }, 1000);
+            }
+        },
+        doubleClick: function () {
+            aw.clicks++;
+            if (aw.clicks == 2) {
+                aw.autowoot = !aw.autowoot;
+                aw.clicks = 0;
+                _$context.trigger('notify', 'icon-woot', aw.autowoot ? 'AutoWoot is now on!' : 'AutoWoot is now off!');
+            }
+            setTimeout(function () {
+                aw.clicks = 0;
+            }, 600);
         }
+    };
+
+    API.on(API.DJ_ADVANCE, aw.djAdvance, this);
+    API.on(API.CHAT, aw.chat, this);
+    $("#woot").bind('click', aw.doubleClick);
+    $('#woot').click();
 }
- 
-startWooting();
+if (typeof aw !== "undefined") aw.close();
+AutoWoot();
+
+
+var url = document.URL;
+var BEM = "http://plug.dj/brazil-eletro-mus1c/";
+
+if (url === BEM) {
+    API.chatLog("ON :v:", alert);
+} else {
+    API.chatLog("Enabling AutoWoot", alert);
+}
+
+if (url === BEM) {
+    document.getElementById("playback").children[0].children[0].src = "http://i.imgur.com/6pmFP4q.jpg";
+    setTimeout(function () {
+        $("body").css("background-image", "url(http://i.imgur.com/car4AE2.png)");
+    }, 100);
+}
