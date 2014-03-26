@@ -43,7 +43,7 @@ var url = document.URL;
 var BEM = "http://plug.dj/brazil-eletro-mus1c/";
 
 if (url === BEM) {
-    API.chatLog("Carregando...:", alert);
+    API.chatLog("Carregando....", alert);
     API.chatLog("ON :v:", alert);
 } else {
     API.chatLog("Enabling AutoWoot", alert);
