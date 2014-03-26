@@ -1,5 +1,6 @@
 //AutoWoot para o site "plug.dj" 
 //Feito por manuminer300 e Editado por Assis.
+
 function AutoWoot() {
     aw = {
         autowoot: true,
