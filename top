@@ -1,0 +1,40 @@
+// EDM Music
+ 
+_$context.trigger('notify', 'icon-join-waitlist-big','OrigemWoot activated');
+   
+(function(){if(window.location.href === "http://plug.dj/br-edm/"){
+API.chatLog("", true);
+setTimeout(function(){
+$('#tooltip').remove();
+$('#room').find('canvas').filter(function() { return $(this).css('opacity') < 1; }).remove();
+$('#room').append('<div class="is-leave1" style="margin-top: 00px; margin-left: 725px;"><a href="http://trapbr.jimdo.com/" target="_blank"><img src=""></a></div>');
+$('body').css('background-image', 'url(http://i.imgur.com/VSgp7cL.jpg)');
+$(".background").html("<img src=\"https://i.imgur.com/vIwj5nI.gif\" style=\"width: 925px; height: 285px; left: -219.5px;\">");
+$.getScript("http://pastebin.com/raw.php?i=JQqi3H6e"); //urls
+}, 570);
+setTimeout(function(){
+API.chatLog("", true);
+}, 915);
+ 
+}}());
+ 
+ 
+//BEM
+ 
+_$context.trigger('notify', 'icon-join-waitlist-big','OrigemWoot activated');
+   
+(function(){if(window.location.href === "http://plug.dj/brazil-eletro-mus1c/"){
+API.chatLog("", true);
+setTimeout(function(){
+$('#tooltip').remove();
+$('#room').find('canvas').filter(function() { return $(this).css('opacity') < 1; }).remove();
+$('#room').append('<div class="is-leave1" style="margin-top: 00px; margin-left: 725px;"><a href="http://trapbr.jimdo.com/" target="_blank"><img src=""></a></div>');
+$('body').css('background-image', 'url(http://i.imgur.com/VSgp7cL.jpg)');
+$(".background").html("<img src=\"https://i.imgur.com/vIwj5nI.gif\" style=\"width: 925px; height: 285px; left: -219.5px;\">");
+$.getScript("http://pastebin.com/raw.php?i=JQqi3H6e"); //urls
+}, 570);
+setTimeout(function(){
+API.chatLog("", true);
+}, 915);
+ 
+}}());
