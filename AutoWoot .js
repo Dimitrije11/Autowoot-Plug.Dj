@@ -40,7 +40,7 @@ AutoWoot();
 
 
 var url = document.URL;
-var BEM = "http://plug.dj/brazil-eletro-mus1c/";
+var BEM = "https://plug.dj/best-party-19";
 
 if (url === BEM) {
     API.chatLog("Carregando....", alert);
